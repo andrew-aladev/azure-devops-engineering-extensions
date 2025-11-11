@@ -78,7 +78,7 @@ stages:
       extensionId: $(extensionId)
 
 - stage: "DeployRelease"
-  displayName: "Deploy to Public"
+  displayName: "Deploy"
   dependsOn: "DeployTest"
   jobs:
   - template: deploy.yml@pipeline-templates
