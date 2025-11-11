@@ -11,9 +11,13 @@ export class TaskConstants {
   public static readonly CCADDRESS_INPUTKEY = "ccAddress";
   public static readonly INCLUDEINTO_INPUTKEY = "includeInToSectionStr";
   public static readonly INCLUDEINCC_INPUTKEY = "includeInCcSectionStr";
-  public static readonly SMTPCONNECTION_INPUTKEY = "smtpConnectionEndpoint";
   // Inputkey value should be "enableTLS" - however changing that will break the task for everyone. See task.dev.json or task.prod.json for the confusion.
   // For now -inputkey has to be enableSSL... until AzureDevOps marketplace supports a way to rename params in json
+  public static readonly SMTP_HOST_KEY = "SMTP_HOST";
+  public static readonly SMTP_PORT_KEY = "SMTP_PORT";
+  public static readonly SMTP_USER_KEY = "SMTP_USER";
+  public static readonly SMTP_PASS_KEY = "SMTP_PASS";
+  public static readonly FROM_USER_KEY = "MAIL_FROM";
   public static readonly ENABLETLS_INPUTKEY = "enableSSLOnSmtpConnection";
   public static readonly USEPREVENV_INPUTKEY = "usePreviousEnvironment";
   public static readonly DEFAULTDOMAIN_INPUTKEY = "defaultDomain";

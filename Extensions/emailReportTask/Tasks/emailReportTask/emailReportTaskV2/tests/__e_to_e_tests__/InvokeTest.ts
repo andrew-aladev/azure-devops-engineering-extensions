@@ -22,9 +22,7 @@ const accessKey = process.env.AccessKey;
 const smtpUser = process.env.SMTPUSER;
 const smtpPassword = process.env.SMTPPASSWORD;
 
-
 export class FileWriter {
-
   static writeToFile(content: string, fileName: string): void {
     const currDir = __dirname;
     console.log(`CurrentDir: ${currDir}`);
@@ -34,22 +32,24 @@ export class FileWriter {
         return console.log(err);
       }
       console.log("File saved successfully!")
-    }
-    );
+    });
   }
 }
 
 export class MockConfigProvider implements IConfigurationProvider {
-
   getPipelineConfiguration(): PipelineConfiguration {
     return new PipelineConfiguration(PipelineType.Release, 13942411, "ProjectId", "ProjectName", 160977787, 9462, false, "https://dev.azure.com/{account}/", accessKey);
   }
 
   getMailConfiguration(): MailConfiguration {
-    return new MailConfiguration("[{environmentStatus}] {passPercentage} tests passed",
+    return new MailConfiguration(
+      "[{environmentStatus}] {passPercentage} tests passed",
       new RecipientsConfiguration("xyz@email.com", false, false, false, false),
       new RecipientsConfiguration("", false, false, false, false),
-      new SmtpConfiguration(smtpUser, smtpPassword, "smtp.live.com", true), "test.com");
+      new SmtpConfiguration("smtp.live.com", "567", smtpUser, smtpPassword, true),
+      "test@test.com",
+      "test.com"
+    );
   }
 
   getReportDataConfiguration(): ReportDataConfiguration {
@@ -63,7 +63,6 @@ export class MockConfigProvider implements IConfigurationProvider {
 }
 
 async function run(): Promise<void> {
-
   console.log('Node Version: ' + process.version);
   const configProvider = new MockConfigProvider();
   const reportConfiguration = new ReportConfiguration(configProvider);

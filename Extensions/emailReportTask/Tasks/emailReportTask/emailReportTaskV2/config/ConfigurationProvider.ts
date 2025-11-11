@@ -69,24 +69,39 @@ export class ConfigurationProvider implements IConfigurationProvider {
   }
 
   private initMailConfiguration(): void {
-    const smtpConnectionId = tl.getInput(TaskConstants.SMTPCONNECTION_INPUTKEY, true);
-    const endPointScheme = tl.getEndpointAuthorizationScheme(smtpConnectionId, true);
-    if (endPointScheme != "UsernamePassword") {
-      throw new InputError(`Incorrect EndPoint Scheme Provided - '${endPointScheme}'. Only UserName and Password type Endpoints allowed.`);
+    const smtpHost = tl.getVariable(TaskConstants.SMTP_HOST_KEY);
+    if (StringUtils.isNullOrWhiteSpace(smtpHost)) {
+      throw new InputError("SMTP host is not set");
     }
- 
-    const smtpHost = tl.getEndpointUrl(smtpConnectionId, true).replace(/(^\w+:|^)\/\//, '').replace(/\/$/, '');
-    const userName = tl.getEndpointAuthorizationParameter(smtpConnectionId, "UserName", true);
-    const password = tl.getEndpointAuthorizationParameter(smtpConnectionId, "Password", true);
+
+    const smtpPort = tl.getVariable(TaskConstants.SMTP_PORT_KEY);
+    if (StringUtils.isNullOrWhiteSpace(smtpPort)) {
+      throw new InputError("SMTP port is not set");
+    }
+
+    const smtpUser = tl.getVariable(TaskConstants.SMTP_USER_KEY);
+    if (StringUtils.isNullOrWhiteSpace(smtpUser)) {
+      throw new InputError("SMTP user is not set");
+    }
+
+    const smtpPass = tl.getVariable(TaskConstants.SMTP_PASS_KEY);
+    if (StringUtils.isNullOrWhiteSpace(smtpPass)) {
+      throw new InputError("SMTP pass is not set");
+    }
+
     const enableTLS = tl.getBoolInput(TaskConstants.ENABLETLS_INPUTKEY, true);
 
-    const smtpConfig = new SmtpConfiguration(userName, password, smtpHost, enableTLS);
+    const smtpConfig = new SmtpConfiguration(smtpHost, smtpPort, smtpUser, smtpPass, enableTLS);
+
+    const fromUser = tl.getVariable(TaskConstants.FROM_USER_KEY);
+    if (StringUtils.isNullOrWhiteSpace(fromUser)) {
+      throw new InputError("From user is not set");
+    }
 
     // Mail Subject
     const mailSubject = tl.getInput(TaskConstants.SUBJECT_INPUTKEY, true);
-    if (StringUtils.isNullOrWhiteSpace(mailSubject))
-    {
-      throw new InputError("Email subject not set");
+    if (StringUtils.isNullOrWhiteSpace(mailSubject)) {
+      throw new InputError("Email subject is not set");
     }
 
     // Optional inputs
@@ -101,7 +116,7 @@ export class ConfigurationProvider implements IConfigurationProvider {
 
     const defaultDomain = tl.getInput(TaskConstants.DEFAULTDOMAIN_INPUTKEY, true);
 
-    this.mailConfiguration = new MailConfiguration(mailSubject, toRecipientsConfiguration, ccRecipientsConfiguration, smtpConfig, defaultDomain);
+    this.mailConfiguration = new MailConfiguration(mailSubject, toRecipientsConfiguration, ccRecipientsConfiguration, smtpConfig, fromUser, defaultDomain);
   }
 
   private initReportDataConfiguration(): void {

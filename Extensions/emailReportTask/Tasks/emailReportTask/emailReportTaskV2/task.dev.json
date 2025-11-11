@@ -215,14 +215,6 @@
       "defaultValue": "true",
       "helpMarkDown": "Enables TLS on SMTP Connection for sending email.",
       "groupName": "advanced"
-    },
-    {
-      "name": "smtpConnectionEndpoint",
-      "type": "connectedService:Generic",
-      "label": "SMTP credentials",
-      "required": true,
-      "helpMarkDown": "SMTP credentials to be used to send email report",
-      "groupName": "advanced"
     }
   ],
   "instanceNameFormat": "Send Email Report $(sendMailConditionConfig)",

@@ -2,7 +2,7 @@ import { Report } from "../Report";
 import { ReportConfiguration } from "../../config/ReportConfiguration";
 import { isNullOrUndefined } from "util";
 import { PipelineConfiguration } from "../../config/pipeline/PipelineConfiguration";
-import { TestOutcome, AggregatedResultsByOutcome } from "azure-devops-node-api/interfaces/TestInterfaces";
+import { TestOutcome } from "azure-devops-node-api/interfaces/TestInterfaces";
 import { LinkHelper } from "../helpers/LinkHelper";
 import { ReleaseViewModel } from "./ReleaseViewModel";
 import { PhaseViewModel, PhaseViewModelWrapper } from "./PhaseViewModel";
@@ -17,7 +17,6 @@ import { PipelineType } from "../../config/pipeline/PipelineType";
 import { BuildReferenceViewModel } from "./BuildReferenceViewModel";
 
 export class EmailReportViewModel {
-
   public DataMissing: boolean;
   public HasTestResultsToShow: boolean;
   public HasFailedTests: boolean;

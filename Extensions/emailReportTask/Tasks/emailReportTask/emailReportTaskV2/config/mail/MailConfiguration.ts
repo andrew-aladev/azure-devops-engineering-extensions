@@ -2,67 +2,54 @@ import { RecipientsConfiguration } from "./RecipientsConfiguration";
 import { SmtpConfiguration } from "./SmtpConfiguration";
 
 export class MailConfiguration {
-
   private mailSubject: string;
   private toRecipientsConfig: RecipientsConfiguration;
   private ccRecipientsConfig: RecipientsConfiguration;
   private smtpConfig: SmtpConfiguration;
+  private fromUser: string;
   private defaultDomain: string;
 
-  constructor($mailSubject: string, $toRecipientsConfig: RecipientsConfiguration, $ccRecipientsConfig: RecipientsConfiguration, $smtpConfig: SmtpConfiguration, $defaultDomain: string) {
+  constructor(
+    $mailSubject: string,
+    $toRecipientsConfig: RecipientsConfiguration,
+    $ccRecipientsConfig: RecipientsConfiguration,
+    $smtpConfig: SmtpConfiguration,
+    $fromUser: string,
+    $defaultDomain: string
+  ) {
     this.mailSubject = $mailSubject;
     this.toRecipientsConfig = $toRecipientsConfig;
     this.ccRecipientsConfig = $ccRecipientsConfig;
     this.smtpConfig = $smtpConfig;
+    this.fromUser = $fromUser;
     this.defaultDomain = $defaultDomain;
   }
 
-  /**
-   * Getter $defaultDomain
-   * @return {string}
-   */
-  public get $defaultDomain(): string {
+  public get $defaultDomain() {
     return this.defaultDomain;
   }
 
-  /**
-   * Getter $mailSubject
-   * @return {string}
-   */
-  public get $mailSubject(): string {
+  public get $mailSubject() {
     return this.mailSubject;
   }
 
-  /**
-   * Getter $ccRecipientsConfig
-   * @return {RecipientsConfiguration}
-   */
-  public get $ccRecipientsConfig(): RecipientsConfiguration {
+  public get $ccRecipientsConfig() {
     return this.ccRecipientsConfig;
   }
 
-  /**
-   * Getter $smtpConfig
-   * @return {SmtpConfiguration}
-   */
-  public get $smtpConfig(): SmtpConfiguration {
+  public get $smtpConfig() {
     return this.smtpConfig;
   }
 
-  /**
-   * Getter $toRecipientsConfig
-   * @return {RecipientsConfiguration}
-   */
-  public get $toRecipientsConfig(): RecipientsConfiguration {
+  public get $fromUser() {
+    return this.fromUser;
+  }
+
+  public get $toRecipientsConfig() {
     return this.toRecipientsConfig;
   }
 
-  /**
- * Setter $mailSubject
- * @param {string} value
- */
   public set $mailSubject(value: string) {
     this.mailSubject = value;
   }
-
 }

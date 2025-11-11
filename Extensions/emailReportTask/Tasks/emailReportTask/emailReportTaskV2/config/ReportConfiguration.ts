@@ -34,15 +34,23 @@ export class ReportConfiguration {
     }
 
     if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$smtpHost)) {
-      this.throwError(TaskConstants.SMTPCONNECTION_INPUTKEY, this.mailConfiguration.$smtpConfig.$smtpHost, "specify SMTP Host URL");
+      this.throwError('SMTP credentials', this.mailConfiguration.$smtpConfig.$smtpHost, "specify SMTP Host");
     }
 
-    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$userName)) {
-      this.throwError(TaskConstants.SMTPCONNECTION_INPUTKEY, this.mailConfiguration.$smtpConfig.$userName, "specify SMTP UserName");
+    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$smtpPort)) {
+      this.throwError('SMTP credentials', this.mailConfiguration.$smtpConfig.$smtpPort, "specify SMTP Port");
     }
 
-    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$password)) {
-      this.throwError(TaskConstants.SMTPCONNECTION_INPUTKEY, this.mailConfiguration.$smtpConfig.$password, "specify SMTP Password");
+    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$smtpUser)) {
+      this.throwError('SMTP credentials', this.mailConfiguration.$smtpConfig.$smtpUser, "specify SMTP User");
+    }
+
+    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$smtpConfig.$smtpPass)) {
+      this.throwError('SMTP credentials', this.mailConfiguration.$smtpConfig.$smtpPass, "specify SMTP Pass");
+    }
+
+    if (StringUtils.isNullOrWhiteSpace(this.mailConfiguration.$fromUser)) {
+      this.throwError('SMTP credentials', this.mailConfiguration.$fromUser, "specify SMTP from User");
     }
   }
 

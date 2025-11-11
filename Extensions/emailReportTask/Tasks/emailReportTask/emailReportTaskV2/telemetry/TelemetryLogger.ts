@@ -43,7 +43,8 @@ export class TelemetryLogger {
       taskConfiguration: {
         sendMailCondition: EnumUtils.GetMailConditionString(this.reportConfig.$sendMailCondition),
         smtpHost: mailConfig.$smtpConfig.$smtpHost,
-        smtpUserName: mailConfig.$smtpConfig.$userName,
+        smtpPort: mailConfig.$smtpConfig.$smtpPort,
+        smtpUser: mailConfig.$smtpConfig.$smtpUser,
         enableTLs: mailConfig.$smtpConfig.$enableTLS,
         includeCommits: reportDataConfig.$includeCommits,
         includeOthersInTotal: reportDataConfig.$includeOthersInTotal,
