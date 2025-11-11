@@ -1,7 +1,7 @@
 {
-  "id": "36fd41b1-8024-4ce9-a5a0-53c3e54ed105",
-  "name": "EmailReport",
-  "friendlyName": "Email Report",
+  "id": "5e011b2f-fee6-46c1-885b-3bf7047d5f07",
+  "name": "EmailReportFCBH",
+  "friendlyName": "Email Report (FCBH)",
   "description": "Send rich email report for test results and for tasks in this stage",
   "helpMarkDown": "Sets 'EmailReportTask.EmailSent' variable to true if it sent email successfully. [Learn More](https://marketplace.visualstudio.com/items?itemName=andrew-aladzyev.EmailReportExtension)",
   "category": "Utility",
@@ -12,8 +12,8 @@
   "author": "Microsoft Corporation",
   "version": {
     "Major": 1,
-    "Minor": 1,
-    "Patch": 9
+    "Minor": 2,
+    "Patch": 0
   },
   "groups": [
     {

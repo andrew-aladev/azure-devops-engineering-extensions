@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
-  "id": "EmailReportExtension",
-  "name": "Email Report Extension",
-  "version": "1.1.9",
+  "id": "EmailReportExtensionFCBH",
+  "name": "Email Report Extension (FCBH)",
+  "version": "1.1.10",
   "publisher": "andrew-aladzyev",
   "public": false,
   "targets": [
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/microsoft/azure-devops-engineering-extensions"
+    "uri": "https://github.com/andrew-aladev/azure-devops-engineering-extensions"
   },
   "contributions": [
     {
