@@ -3,7 +3,7 @@
   "id": "PullRequestInsightsExtension",
   "name": "Pull Request Insights Extension",
   "version": "0.1.19",
-  "publisher": "epsteam",
+  "publisher": "andrew-aladzyev",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"

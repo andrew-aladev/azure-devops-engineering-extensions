@@ -13,7 +13,7 @@ describe("PullRequest Tests", () => {
   let threads: azureGitInterfaces.GitPullRequestCommentThread[];
   let mockApi: AbstractAzureApi;
   const desiredAuthor: string =
-    "Project Collection Build Service (vscsepsteam)";
+    "Project Collection Build Service (andrew-aladzyev)";
   const desiredTask: string = "PullRequestInsights";
   const active: azureGitInterfaces.CommentThreadStatus =
     azureGitInterfaces.CommentThreadStatus.Active;
